@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install openvpn easy-rsa
+apt-get install -y openvpn easy-rsa
 gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz > /etc/openvpn/server.conf\
 
 sed -i 's/dh dh1024.pem/dh dh2048.pem/g'  /home/openvpn-bak/server.conf
