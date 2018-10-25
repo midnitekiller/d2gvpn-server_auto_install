@@ -4,12 +4,12 @@ apt-get update
 apt-get install -y openvpn easy-rsa
 gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz > /etc/openvpn/server.conf
 
-sed -i 's/dh dh1024.pem/dh dh2048.pem/g'  /home/openvpn-bak/server.conf
-sed -i 's/;push "redirect-gateway def1 bypass-dhcp"/push "redirect-gateway def1 bypass-dhcp"/g' /home/openvpn-bak/server.conf
-sed -i 's/;push "dhcp-option DNS 208.67.222.222"/push "dhcp-option DNS 208.67.222.222"/g' /home/openvpn-bak/server.conf
-sed -i 's/;push "dhcp-option DNS 208.67.220.220"/push "dhcp-option DNS 208.67.220.220"/g' /home/openvpn-bak/server.conf
-sed -i 's/;user nobody/user nobody/g'  /home/openvpn-bak/server.conf
-sed -i 's/;group nogroup/group nogroup/g'  /home/openvpn-bak/server.conf
+sed -i 's/dh dh1024.pem/dh dh2048.pem/g'  /etc/openvpn/server.conf
+sed -i 's/;push "redirect-gateway def1 bypass-dhcp"/push "redirect-gateway def1 bypass-dhcp"/g' /etc/openvpn/server.conf
+sed -i 's/;push "dhcp-option DNS 208.67.222.222"/push "dhcp-option DNS 208.67.222.222"/g' /etc/openvpn/server.conf
+sed -i 's/;push "dhcp-option DNS 208.67.220.220"/push "dhcp-option DNS 208.67.220.220"/g' /etc/openvpn/server.conf
+sed -i 's/;user nobody/user nobody/g' /etc/openvpn/server.conf
+sed -i 's/;group nogroup/group nogroup/g' /etc/openvpn/server.conf
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
