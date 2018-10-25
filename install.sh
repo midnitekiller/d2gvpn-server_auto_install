@@ -18,7 +18,7 @@ sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g'  /etc/sysctl.conf
 ufw allow ssh
 ufw allow 1194/udp
 
-ed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
+sed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
 
 echo "# START OPENVPN RULES" >> test.conf
 echo "# NAT table rules" >> test.conf
