@@ -20,14 +20,14 @@ ufw allow 1194/udp
 
 sed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
 
-echo "# START OPENVPN RULES" >> test.conf
-echo "# NAT table rules" >> test.conf
-echo "*nat" >> test.conf
-echo ":POSTROUTING ACCEPT [0:0]" >> test.conf
-echo "# Allow traffic from OpenVPN client to eth0" >> test.conf
-echo "-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE" >> test.conf
-echo "COMMIT" >> test.conf
-echo "# END OPENVPN RULES" >> test.conf
+echo "# START OPENVPN RULES" >> /etc/ufw/before.rules
+echo "# NAT table rules" >> /etc/ufw/before.rules
+echo "*nat" >> /etc/ufw/before.rules
+echo ":POSTROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules
+echo "# Allow traffic from OpenVPN client to eth0" >> /etc/ufw/before.rules
+echo "-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE" >> /etc/ufw/before.rules
+echo "COMMIT" >> /etc/ufw/before.rules
+echo "# END OPENVPN RULES" >> /etc/ufw/before.rules
 
 ufw enable
 
